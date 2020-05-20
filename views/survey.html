@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Survey</title>
+</head>
+<body>
+
+<div class="container">
+    <h1>Midterm Survey</h1>
+
+    <form action="#" method="post">
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="name">Name</label>
+            <input type="text" id="name" name="name" class="form-control mx-sm-3">
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Check all that apply:</label>
+            <div class="col-sm-4">
+                <repeat group="{{ @options }}" value="{{ @option }}">
+                    <label><input type="checkbox" name="option[]" value="{{ @option }}"> {{ @option }}</label><br>
+                </repeat>
+            </div>
+        </div>
+
+
+    </form>
+</div>
+</body>
+</html>
