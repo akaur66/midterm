@@ -1,0 +1,12 @@
+{
+  "name":"akaur/328/midterm",
+  "authors": [
+    {
+      "name":"Amardip Kaur",
+      "email": "akaur66@mail.greenriver.edu"
+    }
+  ],
+  "require":{
+    "bcosca/fatfree-core":"dev-master"
+  }
+}
