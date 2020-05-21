@@ -9,8 +9,8 @@
     <h1>Midterm Survey</h1>
     <h3>Thank you for taking the survey {{ @SESSION.name }}</h3>
     <h3>Your Answers: </h3>
-    <check if="{{ isset(@SESSION.options) }}">
-        <p>{{ implode(@SESSION.options, ", ") }}</p>
+    <check if="{{ isset(@SESSION.option) }}">
+        <p>{{ implode(@SESSION.option, ", ") }}</p>
     </check>
 </div>
 </body>

@@ -23,17 +23,28 @@ $f3->route('GET /', function(){
 $f3->route('GET|POST /survey', function($f3) {
 
     $options = array('This midterm is easy', 'I like midterms', 'Today is Monday');
-    $f3->set('options', $options);
 
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        //store data in the session array
-        $_SESSION['name'] = $_POST['name'];
-        $_SESSION['options'] = $_POST['options'];
+        //validate data
+        if (empty($_POST['name'])) {
+            $f3->set('errors["name"]', "Please enter name");
+        }
+        if(empty($_POST['options'])){
+            $f3->set('errors["option"]', "Please select option");
+        }
 
-        //redirect to summary page
-        $f3->reroute('summary');
+        if(empty($f3->get('errors'))) {
+
+            //store data in the session array
+            $_SESSION['name'] = $_POST['name'];
+            $_SESSION['option'] = $_POST['options'];
+
+            //redirect to summary page
+            $f3->reroute('summary');
+        }
     }
+    $f3->set('options', $options);
 
     $view = new Template();
     echo $view->render('views/survey.html');

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/myStyles.css">
 
     <title>Survey</title>
 </head>
@@ -15,7 +16,12 @@
 
         <div class="form-group">
             <label class="col-sm-2 control-label" for="name">Name</label>
-            <input type="text" id="name" name="name" class="form-control mx-sm-3">
+            <input type="text" id="name" name="name" value="{{ @name }}" class="form-control mx-sm-3">
+            <span class="err">
+                        <check if="{{ isset(@errors['name']) }}">
+                            {{ @errors['name'] }}
+                        </check>
+                    </span>
         </div>
 
         <div class="form-group">
@@ -24,6 +30,11 @@
                 <repeat group="{{ @options }}" value="{{ @option }}">
                     <label><input type="checkbox" name="options[]" value="{{ @option }}"> {{ @option }}</label><br>
                 </repeat>
+                <span class="err">
+                        <check if="{{ isset(@errors['option']) }}">
+                            {{ @errors['option'] }}
+                        </check>
+                    </span>
             </div>
         </div>
 
