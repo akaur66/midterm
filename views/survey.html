@@ -28,14 +28,17 @@
             <label class="col-sm-2 control-label">Check all that apply:</label>
             <div class="col-sm-4">
                 <repeat group="{{ @options }}" value="{{ @option }}">
-                    <label><input type="checkbox" name="options[]" value="{{ @option }}"> {{ @option }}</label><br>
+                    <label><input type="checkbox" name="options[]" value="{{ @option }}"
+                        <check if="{{ !empty(@selectedOption) && in_array(@option, @selectedOption)}}" >
+                            checked="checked"
+                        </check>> {{ @option }}</label><br>
                 </repeat>
-                <span class="err">
+            </div>
+            <span class="err">
                         <check if="{{ isset(@errors['option']) }}">
                             {{ @errors['option'] }}
                         </check>
-                    </span>
-            </div>
+                </span>
         </div>
 
         <div>
